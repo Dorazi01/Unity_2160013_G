@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class RemoveChestNut : MonoBehaviour
 {
+
     SphereCollider Sc;
 
     void Start()

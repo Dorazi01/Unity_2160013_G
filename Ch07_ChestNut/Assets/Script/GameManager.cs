@@ -5,6 +5,8 @@ using Unity.VisualScripting;
 
 public class GameManager : MonoBehaviour
 {
+
+    //게임 전반 상호작용 게임오브젝트 나열
     public static GameManager instance;
 
     public GameObject tutorialWall1;
@@ -16,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject powerSlider;
     public GameObject powerText;
 
+    // 게임 진행에 필요한 변수들
     public int throwChestNutNum = 0;
 
     public int score = 0;
@@ -46,6 +49,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         throwChestNutNum = PlayerPrefs.GetInt("ThrowCount", 0);  // 저장된 값 불러오기
+        //플레이어가 임의로 정한 밤송이 던지기 횟수 PlayerPreference로 불러오기
     }
 
     void Update()
@@ -55,6 +59,7 @@ public class GameManager : MonoBehaviour
         {
             Invoke("GameOver", 3f);
         }
+        //더이상 던질 밤송이가 없을 때 게임오버 출력
     }
 
     void GameOver()
@@ -62,6 +67,8 @@ public class GameManager : MonoBehaviour
         isLive = false;
         SceneManager.LoadScene("GameOverScene");
     }
+
+    //씬 매니지먼트를 통한 씬 이동 구현
     public void EnableWall1()
     {
         tutorialWall1.SetActive(true);

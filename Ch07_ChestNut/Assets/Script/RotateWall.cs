@@ -6,11 +6,6 @@ public class RotateWall : MonoBehaviour
 
     private int direction = 1;  // 1이면 오른쪽 -1이면 왼쪽
 
-    void Start()
-    {
-       
-    }
-
     void Update()
     {
 
@@ -29,7 +24,6 @@ public class RotateWall : MonoBehaviour
         }
 
     }
-
     void Move()
     {
         {

@@ -8,7 +8,9 @@ public class ChestNutBehavior : MonoBehaviour
     {
         GetComponent<Rigidbody>().AddForce(dir);
         GameManager.instance.isShoot = true;
+        //쏘자마자 다시 쏘지 않기위한 Bool값
         Invoke("ShootOut", 6f);
+        //6초 뒤에 다시 밤송이 쏘기 가능하게끔 함
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

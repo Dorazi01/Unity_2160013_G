@@ -5,12 +5,8 @@ using UnityEngine;
 public class LevelCameraMove : MonoBehaviour
 {
     bool isCameraMove = false;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
+    
+    
     // Update is called once per frame
     void Update()
     {
@@ -19,8 +15,11 @@ public class LevelCameraMove : MonoBehaviour
         {
             isCameraMove = false;
         }
+        //점수가 3의 배수일때만 카메라가 움직이도록 설정
         CameraLevel();
 
+
+        //밤송이가 과녁에 맞았을 때 과녁쪽으로 카메라가 줌인, 줌아웃 되도록 설정
         if (GameManager.instance.isHit)
         {
             Vector3 tempPos = this.transform.position;
@@ -53,6 +52,7 @@ public class LevelCameraMove : MonoBehaviour
 
 
 
+    //레벨 디자인으로 임의의 점수마다 카메라가 움직이도록 + isCameraMove를 사용해 한번 움직였으면 더이상 움직이지 않게 설정
     void CameraLevel()
     {
         if (GameManager.instance.score == 3 && !isCameraMove)

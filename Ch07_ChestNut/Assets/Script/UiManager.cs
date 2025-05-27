@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class UiManager : MonoBehaviour
 {
-    public enum InfoType { Score, Count, Power, GameOver }
+    public enum InfoType { Score, Count, GameOver }
     public InfoType type;
 
     public TMP_InputField countInputField; // InputField 연결
@@ -47,17 +47,15 @@ public class UiManager : MonoBehaviour
                     gameObject.SetActive(false);
                 }
                 break;
+
             case InfoType.Count:
                 myText.text = string.Format("Count : {0:F0}", GameManager.instance.throwChestNutNum);
                 if (!GameManager.instance.isLive)
                 {
                     gameObject.SetActive(false);
                 }
-
                 break;
-            case InfoType.Power:
 
-                break;
             case InfoType.GameOver:
 
                 myText.text = string.Format("Final Score : {0:F0}", GameManager.instance.score * 10);
@@ -66,6 +64,8 @@ public class UiManager : MonoBehaviour
         }
 
     }
+
+    // InputField에 입력된 값을 가져와 PlayerPrefs에 저장하고 씬을 이동하는 함수
     public void OnSetCountClicked()
     {
         if (int.TryParse(countInputField.text, out int count) && count > 0)
